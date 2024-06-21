@@ -1,0 +1,25 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: lora;
+  src: url("@assets/fonts/lora-latin-400-normal.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: lora;
+  src: url("@assets/fonts/lora-latin-600-normal.woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: lora;
+  src: url("@assets/fonts/lora-latin-700-normal.woff2");
+  font-weight: 700;
+}
+
+body {
+  overflow-x: hidden;
+}
