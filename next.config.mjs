@@ -11,13 +11,10 @@ const nextConfig = {
     turbo: {
       resolveAlias: {
         "@": resolve(__dirname, "src"),
-        "@lib": resolve(__dirname, "src/lib"),
         "@assets": resolve(__dirname, "src/assets"),
-        "@actions": resolve(__dirname, "src/actions"),
-        "@components": resolve(__dirname, "src/components"),
-        "@containers": resolve(__dirname, "src/containers"),
-        "@hooks": resolve(__dirname, "src/hooks"),
-        "@styles": resolve(__dirname, "src/styles"),
+        "@client": resolve(__dirname, "src/lib/client"),
+        "@server": resolve(__dirname, "src/lib/server"),
+        "@shared": resolve(__dirname, "src/lib/shared"),
       },
     },
   },

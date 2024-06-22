@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@styles/global.css"
+import "@assets/styles/global.css";
 
 export const metadata: Metadata = {
   title: "visual-tweak",
@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
