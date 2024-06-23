@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "@client/utils.client";
+import { cn } from "@client/utils/cn";
 
 const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(100).fill(1);

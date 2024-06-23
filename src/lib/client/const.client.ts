@@ -3,7 +3,7 @@ import { Operation } from "./types.client";
 export const operations: Operation[] = [
   {
     title: "Format Conversion",
-    description: "Change image file formats (e.g., JPG to PNG, TIFF to WebP).",
+    description: "Change image file formats (JPG, PNG, SVG, WBPB).",
     href: "format-conversion",
   },
   {
