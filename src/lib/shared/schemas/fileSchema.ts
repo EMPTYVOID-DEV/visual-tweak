@@ -3,7 +3,7 @@ import { acceptedTypes, sizeLimit } from "../const.shared";
 
 function validateSize(sizeInBytes: number) {
   const sizeInMb = sizeInBytes / 1000000;
-  if (sizeInMb > sizeLimit) return false;
+  if (sizeInMb > sizeLimit || sizeInBytes == 0) return false;
   return true;
 }
 
@@ -12,10 +12,9 @@ function validateType(type: string) {
 }
 
 export const fileSchema = z
-  .any()
-  .refine((file: File) => file.size !== 0, { message: "File is required" })
+  .instanceof(File, { message: "File should be a file" })
   .refine((file: File) => validateSize(file.size), {
-    message: `File size should be less or equal to ${sizeLimit}mb`,
+    message: `File size should be less or equal to ${sizeLimit}mb and not zero`,
   })
   .refine((file: File) => validateType(file.type), {
     message:

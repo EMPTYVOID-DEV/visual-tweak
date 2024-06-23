@@ -6,9 +6,19 @@ export async function convertImage(
   inputBuffer: Buffer,
   targetFormat: AcceptedFormats
 ) {
-  targetFormat = targetFormat == "jpg" ? "jpeg" : targetFormat;
   const sharpInstance = sharp(inputBuffer, { failOn: "none" });
-  const converter = sharpInstance[targetFormat];
-  const options = conversionOptions[targetFormat];
-  return converter(options).toBuffer();
+
+  switch (targetFormat) {
+    case "jpeg":
+    case "jpg":
+      return sharpInstance.jpeg(conversionOptions.jpeg).toBuffer();
+    case "png":
+      return sharpInstance.png(conversionOptions.png).toBuffer();
+    case "webp":
+      return sharpInstance.webp(conversionOptions.webp).toBuffer();
+    case "avif":
+      return sharpInstance.avif(conversionOptions.avif).toBuffer();
+    case "tiff":
+      return sharpInstance.tiff(conversionOptions.tiff).toBuffer();
+  }
 }
