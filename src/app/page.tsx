@@ -1,6 +1,5 @@
-import Card from "@/lib/client/components/card";
-import { operations } from "@/lib/client/const.client";
-import { Boxes } from "@client/components/boxes";
+import { Boxes } from "@components/boxes";
+import Cards from "@containers/home/Cards";
 
 export default function Page() {
   return (
@@ -14,11 +13,7 @@ export default function Page() {
           photos. Transform your visuals now!
         </span>
       </section>
-      <section className="w-full grid grid-cols-4 auto-rows-fr  gap-4 md:grid-cols-1 z-50">
-        {operations.map((el) => (
-          <Card key={el.href} {...el} />
-        ))}
-      </section>
+      <Cards />
     </div>
   );
 }

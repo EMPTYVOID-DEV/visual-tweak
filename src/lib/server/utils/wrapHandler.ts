@@ -19,7 +19,6 @@ export function routeWrapper<A extends Record<string, unknown>>(
         });
       return await handler(eitherData.right);
     } catch (error) {
-      console.log(error);
       return new Response("Service Unavailable", { status: 500 });
     }
   };

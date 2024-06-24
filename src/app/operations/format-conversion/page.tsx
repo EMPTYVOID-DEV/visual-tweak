@@ -1,27 +1,15 @@
-"use client";
-
-import { useRef } from "react";
+import Converter from "@containers/format-conversion/converter";
 
 function FormatConversion() {
-  const ref = useRef<HTMLInputElement>(null);
-  function download() {
-    const files = ref.current?.files;
-    if (files) {
-      const data = new FormData();
-      data.append("file", files[0]);
-      fetch("/api/format-conversion", {
-        method: "POST",
-        body: data,
-      })
-        .then((res) => res.json())
-        .then((txt) => console.log(txt));
-    }
-  }
   return (
-    <>
-      <input type="file" name="file" ref={ref} />
-      <button onClick={() => download()}>downalod</button>
-    </>
+    <div className="w-svw h-svh bg-backgroundColor flex flex-col items-center justify-center gap-8 px-[2.5%] ">
+      <Converter />
+      <p className="text-foregroundColor/70 text-center font-semibold ">
+        The accepted formats for uploaded and target images are JPEG, JPG, PNG,
+        WebP, AVIF and TIFF.
+        <br /> The file size should not exceed 5MB.
+      </p>
+    </div>
   );
 }
 

@@ -18,14 +18,14 @@ function defaultStyles({ addBase, theme }) {
       fontSize: theme("fontSize.h4"),
       lineHeight: theme("lineHeight.lh4"),
     },
-    "label, code, span, li, p, i": {
-      fontFamily: theme("fontFamily.bodyFont"),
+    "label, code, span, li, p, i,a": {
+      fontFamily: theme("fontFamily.font"),
       fontSize: theme("fontSize.body"),
-      fontWeight: "400",
       lineHeight: theme("lineHeight.lhbody"),
+      fontWeight: "400",
     },
     "h1,h2,h3,h4": {
-      fontFamily: theme("fontFamily.headingFont"),
+      fontFamily: theme("fontFamily.font"),
       fontWeight: "700",
     },
   });
@@ -66,8 +66,7 @@ const config = {
         bdr: "0.3rem",
       },
       fontFamily: {
-        headingFont: "Lora, sans-serif",
-        bodyFont: "Lora, sans-serif",
+        font: "Lora, sans-serif",
       },
       fontSize: {
         huge: "clamp(3.8rem, calc(3.8rem + ((1vw - 0.48rem) * 1.3889)), 4.8rem)",

@@ -1,28 +1,22 @@
-export const conversionOptions = {
+export const conversionSettings = {
   jpeg: {
-    quality: 90,
-    chromaSubsampling: "4:4:4",
+    quality: 80,
     mozjpeg: true,
   },
   png: {
-    compressionLevel: 9,
-    adaptiveFiltering: true,
+    compressionLevel: 6,
     palette: true,
   },
   webp: {
-    quality: 90,
+    quality: 80,
     lossless: false,
-    nearLossless: false,
-    smartSubsample: true,
   },
   avif: {
-    quality: 90,
-    lossless: false,
-    effort: 9,
+    quality: 70,
+    effort: 4,
   },
   tiff: {
-    quality: 90,
+    quality: 80,
     compression: "lzw",
-    predictor: "horizontal",
   },
 };

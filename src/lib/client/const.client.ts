@@ -1,4 +1,5 @@
-import { Operation } from "./types.client";
+import { AcceptedFormats } from "../shared/types.shared";
+import { Operation, SelectOption } from "./types.client";
 
 export const operations: Operation[] = [
   {
@@ -48,4 +49,16 @@ export const operations: Operation[] = [
       "Change image orientation by rotating or flipping horizontally/vertically.",
     href: "rotate-flip",
   },
+];
+
+export const converterOptions: SelectOption<
+  AcceptedFormats,
+  AcceptedFormats
+>[] = [
+  { value: "avif", label: "avif" },
+  { value: "jpeg", label: "jpeg" },
+  { value: "png", label: "png" },
+  { value: "jpg", label: "jpg" },
+  { value: "tiff", label: "tiff" },
+  { value: "webp", label: "webp" },
 ];

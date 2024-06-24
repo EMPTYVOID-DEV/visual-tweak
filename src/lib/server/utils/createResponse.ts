@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export function createResponse<A>(
+export function createResponse(
   data: BodyInit,
   status: number,
   headers: Record<string, string> = {}

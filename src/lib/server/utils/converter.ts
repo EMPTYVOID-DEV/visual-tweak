@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { conversionOptions } from "../const.server";
+import { conversionSettings } from "../const.server";
 import { AcceptedFormats } from "@shared/types.shared";
 
 export async function convertImage(
@@ -11,14 +11,14 @@ export async function convertImage(
   switch (targetFormat) {
     case "jpeg":
     case "jpg":
-      return sharpInstance.jpeg(conversionOptions.jpeg).toBuffer();
+      return sharpInstance.jpeg(conversionSettings.jpeg).toBuffer();
     case "png":
-      return sharpInstance.png(conversionOptions.png).toBuffer();
+      return sharpInstance.png(conversionSettings.png).toBuffer();
     case "webp":
-      return sharpInstance.webp(conversionOptions.webp).toBuffer();
+      return sharpInstance.webp(conversionSettings.webp).toBuffer();
     case "avif":
-      return sharpInstance.avif(conversionOptions.avif).toBuffer();
+      return sharpInstance.avif(conversionSettings.avif).toBuffer();
     case "tiff":
-      return sharpInstance.tiff(conversionOptions.tiff).toBuffer();
+      return sharpInstance.tiff(conversionSettings.tiff).toBuffer();
   }
 }

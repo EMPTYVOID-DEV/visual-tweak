@@ -3,3 +3,5 @@ export type Operation = {
   description: string;
   href: string;
 };
+
+export type SelectOption<A, B> = { value: A; label: B };
