@@ -37,18 +37,6 @@ export const operations: Operation[] = [
       "Separate the main subject from the background, creating transparency.",
     href: "remove-background",
   },
-  {
-    title: "Apply Filters",
-    description:
-      "Add preset effects like sepia, blur, hue, black and white, or vintage to images.",
-    href: "filters",
-  },
-  {
-    title: "Rotate and Flip",
-    description:
-      "Change image orientation by rotating or flipping horizontally/vertically.",
-    href: "rotate-flip",
-  },
 ];
 
 export const converterOptions: SelectOption<

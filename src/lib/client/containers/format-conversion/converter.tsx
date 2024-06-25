@@ -76,7 +76,7 @@ function Converter() {
           >
             <div className="flex gap-1 items-center justify-between">
               <span className="font-semibold text-backgroundColor">
-                Download file
+                Download Result
               </span>
               <Download />
             </div>
