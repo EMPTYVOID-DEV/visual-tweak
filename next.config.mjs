@@ -16,7 +16,10 @@ const nextConfig = {
         "@server": resolve(__dirname, "src/lib/server"),
         "@shared": resolve(__dirname, "src/lib/shared"),
         "@components": resolve(__dirname, "src/lib/client/components"),
-        "@containers": resolve(__dirname, "src/lib/client/containers"),
+        "@operationComponents": resolve(
+          __dirname,
+          "src/lib/client/operationComponents"
+        ),
         "@hooks": resolve(__dirname, "src/lib/client/hooks"),
       },
     },

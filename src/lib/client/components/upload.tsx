@@ -1,54 +1,66 @@
-"use client";
-
-import { HardDriveUpload } from "lucide-react";
-import { cn } from "../utils";
-import { FormEventHandler } from "react";
+import { Option } from "fp-ts/lib/Option";
+import React, { FormEvent } from "react";
 
 type Props = {
-  name?: string;
-  label?: string;
-  onChange: FormEventHandler<HTMLInputElement>;
-  ref?: React.RefObject<HTMLInputElement>;
-  accept?: string;
-} & React.HTMLAttributes<HTMLInputElement>;
+  name: Option<string>;
+  onChange: (file: File) => void;
+  onDrop: (file: File) => void;
+  accept: string;
+};
 
-function Upload({
-  name = "",
-  className,
-  ref,
-  label = "Upload File to transform",
-  onChange,
-  ...props
-}: Props) {
+const UploadUI = ({ onChange, onDrop, accept, name }: Props) => {
+  const dropHandler = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+    const dropFile = e.dataTransfer?.files[0];
+    if (dropFile) {
+      onDrop(dropFile);
+    }
+  };
+
+  const dragOver = (e: React.DragEvent<HTMLLabelElement>) => {
+    e.preventDefault();
+  };
+
+  function onFileUpload(e: FormEvent<HTMLInputElement>) {
+    if (e.currentTarget.files && e.currentTarget.files.length > 0) {
+      onChange(e.currentTarget.files[0]);
+    }
+  }
+
   return (
-    <div className="flex flex-col gap-1">
-      <span className="text-small font-semibold text-foregroundColor">
-        {label}
-      </span>
+    <>
       <input
+        accept={accept}
         type="file"
-        name="file"
-        id="file"
+        id="upload"
         className="hidden"
-        ref={ref}
-        onChange={onChange}
-        {...props}
+        onChange={onFileUpload}
       />
       <label
-        htmlFor="file"
-        className={cn(
-          "flex items-center  justify-between gap-2 bg-primaryColor px-6 py-2 rounded-bdr cursor-pointer ",
-          className
-        )}
+        htmlFor="upload"
+        onDragOver={dragOver}
+        onDrop={dropHandler}
+        className="w-full flex flex-col justify-center items-center gap-2 bg-transparent border-2 border-dashed border-foregroundColor rounded-bdr px-1 py-6 cursor-pointer"
       >
-        <span className="text-backgroundColor font-semibold">Upload File</span>
-        <span className="text-backgroundColor empty:hidden line-clamp-1">
-          {name}
+        <span className="text-foregroundColor text-[--body] font-[--bodyFont]">
+          Drop your files here , or
+          <span className="text-primaryColor"> click to browse</span>
         </span>
-        <HardDriveUpload />
-      </label>
-    </div>
-  );
-}
+        {name._tag == "Some" && (
+          <span className="text-primaryColor font-semibold line-clamp-1 ">
+            {name.value}
+          </span>
+        )}
 
-export default Upload;
+        {name._tag == "None" && (
+          <span className="text-foregroundColor/70 text-center text-balance font-semibold">
+            The file formats you can use are limited to JPEG, JPG, PNG, WebP,
+            TIFF, and AVIF <br /> Maximum file size is 5 MB.
+          </span>
+        )}
+      </label>
+    </>
+  );
+};
+
+export default UploadUI;

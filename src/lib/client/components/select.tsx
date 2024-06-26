@@ -6,23 +6,26 @@ import ReactSelect, { SingleValue } from "react-select";
 type Props<A, B> = {
   options: SelectOption<A, B>[];
   label?: string;
-  defaultValue: SelectOption<A, B>;
+  defaultValue?: SelectOption<A, B>;
+  value?: SelectOption<A, B>;
   onChange: (newValue: SingleValue<SelectOption<A, B>>) => void;
 };
 
 function Select<A, B>({
   defaultValue,
+  value,
   label = "Select option",
   onChange,
   options,
 }: Props<A, B>) {
   return (
     <div className="flex flex-col gap-1">
-      <span className="text-foregroundColor font-semibold text-small">
+      <span className="capitalize text-foregroundColor font-semibold text-small empty:hidden">
         {label}
       </span>
       <ReactSelect
         defaultValue={defaultValue}
+        value={value}
         options={options}
         onChange={onChange}
         styles={{
@@ -35,6 +38,7 @@ function Select<A, B>({
             boxShadow: "none",
             outline: "none",
             gap: "2rem",
+            cursor: "pointer",
             ":hover": {
               border: "1px solid #ffb7c5",
             },
@@ -50,6 +54,7 @@ function Select<A, B>({
             color: isSelected ? "#030200" : "#ffb7c5",
             fontWeight: "600",
             fontFamily: "Lora",
+            cursor: "pointer",
             backgroundColor: isSelected ? "#ffb7c5" : "#030200",
             ":active": {
               backgroundColor: "#ffb7c5",

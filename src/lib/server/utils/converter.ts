@@ -1,24 +1,24 @@
 import sharp from "sharp";
-import { conversionSettings } from "../const.server";
-import { AcceptedFormats } from "@shared/types.shared";
+import { sharpSettings } from "../const.server";
+import { ConverterType } from "../schemas/converterSchema";
 
 export async function convertImage(
   inputBuffer: Buffer,
-  targetFormat: AcceptedFormats
+  { targetFormat }: ConverterType
 ) {
   const sharpInstance = sharp(inputBuffer, { failOn: "none" });
 
   switch (targetFormat) {
     case "jpeg":
     case "jpg":
-      return sharpInstance.jpeg(conversionSettings.jpeg).toBuffer();
+      return sharpInstance.jpeg(sharpSettings.jpeg).toBuffer();
     case "png":
-      return sharpInstance.png(conversionSettings.png).toBuffer();
+      return sharpInstance.png(sharpSettings.png).toBuffer();
     case "webp":
-      return sharpInstance.webp(conversionSettings.webp).toBuffer();
+      return sharpInstance.webp(sharpSettings.webp).toBuffer();
     case "avif":
-      return sharpInstance.avif(conversionSettings.avif).toBuffer();
+      return sharpInstance.avif(sharpSettings.avif).toBuffer();
     case "tiff":
-      return sharpInstance.tiff(conversionSettings.tiff).toBuffer();
+      return sharpInstance.tiff(sharpSettings.tiff).toBuffer();
   }
 }

@@ -11,3 +11,9 @@ export function arrayBufferToJSON<A>(buffer: ArrayBuffer): Option<A> {
     return none;
   }
 }
+
+export function recordToFormData(data: Record<string, string | Blob>) {
+  const fd = new FormData();
+  Object.entries(data).forEach((el) => fd.append(el[0], el[1]));
+  return fd;
+}

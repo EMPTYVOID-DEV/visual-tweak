@@ -10,5 +10,5 @@ export function validator<A>(
 }
 
 export function serializeZodError(error: ZodError) {
-  return error.errors.map((e) => e.message);
+  return error.errors.map((e) => `${e.path}: ${e.message}`);
 }

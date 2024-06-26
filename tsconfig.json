@@ -25,7 +25,7 @@
       "@server/*":["./src/lib/server/*"],
       "@shared/*":["./src/lib/shared/*"],
       "@components/*" :["./src/lib/client/components/*"],
-      "@containers/*" :["./src/lib/client/containers/*"],
+      "@operationComponents/*" :["./src/lib/client/operationComponents/*"],
       "@hooks/*":["./src/lib/client/hooks/*"]
 
     }

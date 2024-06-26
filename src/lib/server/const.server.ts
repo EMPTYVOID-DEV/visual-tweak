@@ -1,4 +1,4 @@
-export const conversionSettings = {
+export const sharpSettings = {
   jpeg: {
     quality: 80,
     mozjpeg: true,

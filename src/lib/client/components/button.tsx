@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { cn } from "../utils";
+import { cn } from "@client/utils/cn";
 
 type Variant = "passive" | "primary" | "danger" | "success" | "disabled";
 

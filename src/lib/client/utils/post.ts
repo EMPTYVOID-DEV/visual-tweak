@@ -1,24 +1,23 @@
 import axios, { AxiosError } from "axios";
 import { Either, left, right } from "fp-ts/lib/Either";
-import { arrayBufferToJSON } from "./arrayBufferToJson";
+import { arrayBufferToJSON, recordToFormData } from "./transformers";
 
 export async function Post(
   url: string,
-  data: Record<string, any>
-): Promise<Either<string[], Blob>> {
-  const fd = new FormData();
-  Object.entries(data).forEach((el) => fd.append(el[0], el[1]));
+  data: Record<string, string | Blob>
+): Promise<Either<string[], File>> {
+  const fd = recordToFormData(data);
 
   try {
     const response = await axios.post(url, fd, {
       responseType: "arraybuffer",
     });
 
-    const blob = new Blob([response.data], {
+    const file = new File([response.data], "result", {
       type: response.headers["content-type"],
     });
 
-    return right(blob);
+    return right(file);
   } catch (error) {
     let errorMessages: string[] = [];
     if (error instanceof AxiosError) {
