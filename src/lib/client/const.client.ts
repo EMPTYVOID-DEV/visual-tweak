@@ -4,8 +4,6 @@ import { Operations, SelectOption } from "./types.client";
 import Converter from "@operationComponents/converter";
 import Compresser from "@operationComponents/compresser";
 import Resizer from "@operationComponents/resizer";
-import Enhancer from "@operationComponents/enhancer";
-import BackgroundRemover from "@operationComponents/backgroundRemover";
 
 export const settingsMap: Record<
   Operations,
@@ -23,18 +21,10 @@ export const settingsMap: Record<
     component: Resizer,
     defaultSettings: {
       fit: "fill",
-      height: 500,
-      width: 500,
-      position: { x: 50, y: 50 },
+      height: 200,
+      width: 200,
+      position: "center",
     },
-  },
-  enhancement: {
-    component: Enhancer,
-    defaultSettings: {},
-  },
-  "remove-background": {
-    component: BackgroundRemover,
-    defaultSettings: {},
   },
 };
 
@@ -51,14 +41,6 @@ export const operations: SelectOption<Operations, string>[] = [
     label: "Resize",
     value: "resize",
   },
-  {
-    label: "Enhancement",
-    value: "enhancement",
-  },
-  {
-    label: "Remove Background",
-    value: "remove-background",
-  },
 ];
 
 export const converterOptions: SelectOption<
@@ -71,4 +53,21 @@ export const converterOptions: SelectOption<
   { value: "jpg", label: "jpg" },
   { value: "tiff", label: "tiff" },
   { value: "webp", label: "webp" },
+];
+
+export const fitOptions: SelectOption<string, string>[] = [
+  { value: "fill", label: "fill" },
+  { value: "contain", label: "contain" },
+  { value: "cover", label: "cover" },
+];
+export const positionOptions: SelectOption<string, string>[] = [
+  { value: "top", label: "top" },
+  { value: "right top", label: "right top" },
+  { value: "right", label: "right" },
+  { value: "right bottom", label: "right bottom" },
+  { value: "bottom", label: "bottom" },
+  { value: "left bottom", label: "left bottom" },
+  { value: "left", label: "left" },
+  { value: "left top", label: "left top" },
+  { value: "center", label: "center" },
 ];

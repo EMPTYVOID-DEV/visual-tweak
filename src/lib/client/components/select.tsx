@@ -34,13 +34,13 @@ function Select<A, B>({
             backgroundColor: "#030200",
             paddingInline: "2rem",
             paddingBlock: "0.2rem",
-            border: isFocused ? "1px solid #fffbee" : "1px solid #ffb7c5",
+            border: isFocused ? "1px solid #ffa0c5" : "1px solid #fffbee",
             boxShadow: "none",
             outline: "none",
             gap: "2rem",
             cursor: "pointer",
             ":hover": {
-              border: "1px solid #ffb7c5",
+              border: "1px solid #ffa0c5",
             },
           }),
           singleValue: (base) => ({
@@ -51,17 +51,17 @@ function Select<A, B>({
           }),
           option: (base, { isSelected }) => ({
             ...base,
-            color: isSelected ? "#030200" : "#ffb7c5",
+            color: isSelected ? "#030200" : "#ffa0c5",
             fontWeight: "600",
             fontFamily: "Lora",
             cursor: "pointer",
-            backgroundColor: isSelected ? "#ffb7c5" : "#030200",
+            backgroundColor: isSelected ? "#ffa0c5" : "#030200",
             ":active": {
-              backgroundColor: "#ffb7c5",
+              backgroundColor: "#ffa0c5",
               color: "#030200",
             },
             ":hover": {
-              backgroundColor: "#ffb7c5",
+              backgroundColor: "#ffa0c5",
               color: "#030200",
             },
           }),
@@ -75,7 +75,7 @@ function Select<A, B>({
           menu: (base) => ({
             ...base,
             backgroundColor: "#030200",
-            border: "1px solid #ffb7c5",
+            border: "1px solid #ffa0c5",
           }),
         }}
       />

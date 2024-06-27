@@ -7,7 +7,7 @@ export async function convertImage(
   { targetFormat }: ConverterType
 ) {
   const sharpInstance = sharp(inputBuffer, { failOn: "none" });
-
+  u;
   switch (targetFormat) {
     case "jpeg":
     case "jpg":

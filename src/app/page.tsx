@@ -11,8 +11,8 @@ export default function Page() {
         <h1 className="text-primaryColor ">Visual tweak</h1>
         <span className="text-foregroundColor/70 text-center text-balance font-semibold">
           Turbocharge Your Images: Free Pro-Level Tools at Your Fingertips!
-          Resize, enhance, compress, and more. One-click magic for stunning
-          photos.
+          Convert formats ,resize, compress ,filters and more. One-click magic
+          for stunning photos.
         </span>
         <Button className="shadow-primaryColor shadow-lg">
           <div className="flex items-center gap-1">

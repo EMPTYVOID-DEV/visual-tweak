@@ -2,12 +2,7 @@ import { AcceptedFormats } from "../shared/types.shared";
 
 export type SelectOption<A, B> = { value: A; label: B };
 
-export type Operations =
-  | "format-conversion"
-  | "compression"
-  | "resize"
-  | "enhancement"
-  | "remove-background";
+export type Operations = "format-conversion" | "compression" | "resize";
 
 export type OperationsSettings =
   | { quality: number }

@@ -55,7 +55,7 @@ const config = {
     },
     extend: {
       colors: {
-        primaryColor: "#ffb7c5",
+        primaryColor: "#ffa0c5",
         backgroundColor: "#030200",
         foregroundColor: "#fffbee",
         dangerColor: "#ff0000",

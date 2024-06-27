@@ -77,7 +77,7 @@ function Transformer() {
   }
 
   return (
-    <section className="w-[80%] md:w-[100%] justify-center flex flex-col gap-6 z-50">
+    <section className="w-[80%] md:w-[100%] justify-center flex flex-col gap-6 ">
       <Select
         label="Select Operation"
         defaultValue={operations[0]}
