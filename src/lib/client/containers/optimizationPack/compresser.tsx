@@ -9,7 +9,7 @@ function Compresser() {
   return (
     <div className="flex flex-col gap-1">
       <span className="capitalize text-small font-semibold text-foregroundColor">
-        The level of compression (1-100)
+        The relative quality {settings.quality as string}%
       </span>
       <Slider
         className="z-0"

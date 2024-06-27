@@ -9,12 +9,12 @@ export default function Page() {
       <section className="z-50 flex flex-col items-center justify-center gap-4">
         <h1 className="text-primaryColor ">Visual tweak</h1>
         <span className="text-foregroundColor/70 text-center text-balance font-semibold">
-          Turbocharge Your Images: Free Pro-Level Tools at Your Fingertips!
-          Convert formats ,resize, compress ,filters and more. One-click magic
-          for stunning photos.
+          Image Processing Tools for Developers API-driven packs for image
+          optimization, filters, enhancements and more. Efficiently process and
+          transform images for your applications.
         </span>
       </section>
-      <section className="w-full grid grid-cols-3 auto-rows-fr  gap-4 md:grid-cols-1 z-50">
+      <section className="w-full grid grid-cols-2 auto-rows-fr  gap-4 md:grid-cols-1 z-50">
         {packs.map((el) => (
           <Card key={el.href} {...el} />
         ))}

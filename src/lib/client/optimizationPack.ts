@@ -15,10 +15,8 @@ export const optimizationPackSettings: Settings<OptimizationOperations> = {
   resize: {
     component: Resizer,
     defaultSettings: {
-      fit: "fill",
       height: 200,
       width: 200,
-      position: "center",
     },
   },
 };

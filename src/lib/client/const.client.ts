@@ -11,14 +11,8 @@ export const packs: Pack[] = [
   {
     title: "Filters Pack",
     description:
-      "Apply various image filters and effects.Adjust color, saturation, blur, and opacity.",
+      "Apply various image filters Sepia, Saturation, grayscale, blur, hue and opacity.",
     href: "filters",
-  },
-  {
-    title: "Enhancement Pack",
-    description:
-      "Improve image quality with advanced techniques.Reduce noise, sharpen details, and remove red-eye.",
-    href: "enhancement",
   },
 ];
 
@@ -32,21 +26,4 @@ export const converterOptions: SelectOption<
   { value: "jpg", label: "jpg" },
   { value: "tiff", label: "tiff" },
   { value: "webp", label: "webp" },
-];
-
-export const fitOptions: SelectOption<string, string>[] = [
-  { value: "fill", label: "fill" },
-  { value: "contain", label: "contain" },
-  { value: "cover", label: "cover" },
-];
-export const positionOptions: SelectOption<string, string>[] = [
-  { value: "top", label: "top" },
-  { value: "right top", label: "right top" },
-  { value: "right", label: "right" },
-  { value: "right bottom", label: "right bottom" },
-  { value: "bottom", label: "bottom" },
-  { value: "left bottom", label: "left bottom" },
-  { value: "left", label: "left" },
-  { value: "left top", label: "left top" },
-  { value: "center", label: "center" },
 ];
