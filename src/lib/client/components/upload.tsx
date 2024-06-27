@@ -1,3 +1,5 @@
+"use client";
+
 import { Option } from "fp-ts/lib/Option";
 import React, { FormEvent } from "react";
 

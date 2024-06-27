@@ -1,11 +1,12 @@
-import { convertImage } from "@server/utils/converter";
+import { convertImage } from "@server/utils/optimizationPack";
 import { fileToBuffer } from "@server/utils/transformers";
 import { createResponse } from "@server/utils/createResponse";
 import { routeWrapper } from "@server/utils/wrapHandler";
 import {
   ConverterType,
   ConverterSchema,
-} from "@/lib/server/schemas/converterSchema";
+} from "@server/schemas/converterSchema";
+import { fileSchemaConstructor } from "@server/utils/schemaConstructors";
 
 async function formatConverter({
   file,
@@ -22,4 +23,7 @@ async function formatConverter({
   });
 }
 
-export const POST = routeWrapper(formatConverter, ConverterSchema);
+export const POST = routeWrapper(
+  formatConverter,
+  fileSchemaConstructor(ConverterSchema)
+);

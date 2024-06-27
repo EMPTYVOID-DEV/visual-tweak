@@ -1,5 +1,14 @@
-import { atom } from "jotai";
+import { createStore } from "zustand";
 
-export const settingsAtom = atom<Record<string, unknown>>({
-  targetFormat: "png",
-});
+interface SettingsStore {
+  settings: Record<string, unknown>;
+  updateSettings: (newSettings: Record<string, unknown>) => void;
+  setDefaultSettings: (defaultSettings: Record<string, unknown>) => void;
+}
+
+export const settingsStore = createStore<SettingsStore>((set) => ({
+  settings: {},
+  updateSettings: (newSettings) =>
+    set((prev) => ({ settings: { ...prev.settings, ...newSettings } })),
+  setDefaultSettings: (defaultSettings) => set({ settings: defaultSettings }),
+}));

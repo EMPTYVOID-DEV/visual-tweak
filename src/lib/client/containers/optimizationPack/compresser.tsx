@@ -1,9 +1,11 @@
-import { useAtom } from "jotai";
-import { settingsAtom } from "../stores/settings";
+"use client";
+
+import { useStore } from "zustand";
+import { settingsStore } from "@stores/settings";
 import Slider from "@components/slider";
 
 function Compresser() {
-  const [settings, setSettings] = useAtom(settingsAtom);
+  const { settings, updateSettings } = useStore(settingsStore);
   return (
     <div className="flex flex-col gap-1">
       <span className="capitalize text-small font-semibold text-foregroundColor">
@@ -13,7 +15,7 @@ function Compresser() {
         className="z-0"
         value={settings.quality as number}
         onChange={(val) => {
-          setSettings({ quality: val });
+          updateSettings({ quality: val });
         }}
       />
     </div>

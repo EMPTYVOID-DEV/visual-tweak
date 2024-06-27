@@ -2,7 +2,6 @@ import { validator, serializeZodError } from "@server/utils/validator";
 import { NextResponse } from "next/server";
 import { ZodSchema } from "zod";
 import { transformFormData } from "./transformers";
-import { constructSchema } from "./constructSchema";
 
 type Handler<A> = (data: A) => Promise<Response>;
 
@@ -12,10 +11,9 @@ export function routeWrapper<A extends Record<string, unknown>>(
 ) {
   return async function POST(req: Request) {
     try {
-      const newSchema = constructSchema(schema);
       const fd = await req.formData();
       const data = transformFormData(fd);
-      const eitherData = validator<A>(data, newSchema);
+      const eitherData = validator<A>(data, schema);
       if (eitherData._tag == "Left")
         return NextResponse.json(serializeZodError(eitherData.left), {
           status: 400,

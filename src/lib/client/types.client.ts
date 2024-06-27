@@ -1,16 +1,21 @@
-import { AcceptedFormats } from "../shared/types.shared";
+import { FunctionComponent } from "react";
 
 export type SelectOption<A, B> = { value: A; label: B };
 
-export type Operations = "format-conversion" | "compression" | "resize";
+export type OptimizationOperations =
+  | "format-conversion"
+  | "compression"
+  | "resize";
 
-export type OperationsSettings =
-  | { quality: number }
-  | { targetFormat: AcceptedFormats }
-  | {
-      width: number;
-      height: number;
-      fit: "fill" | "cover" | "contain";
-      position: { x: number; y: number };
-    }
-  | Record<string, never>;
+export type Settings<A extends string> = Record<
+  A,
+  {
+    component: FunctionComponent | null;
+    defaultSettings: Record<string, unknown>;
+  }
+>;
+export type Pack = {
+  title: string;
+  description: string;
+  href: string;
+};

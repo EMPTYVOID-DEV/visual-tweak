@@ -7,17 +7,16 @@
     "dev-net": "next dev --turbo -H 192.168.1.8",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check": "tsc"
   },
   "dependencies": {
-    "@upscalerjs/esrgan-medium": "1.0.0-beta.13",
     "axios": "^1.7.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "fp-ts": "^2.16.6",
     "framer-motion": "^11.2.11",
     "imagemin": "^9.0.0",
-    "jotai": "^2.8.3",
     "lucide-react": "^0.396.0",
     "next": "14.2.4",
     "rc-slider": "^10.6.2",
@@ -28,7 +27,8 @@
     "sharp": "^0.33.4",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/imagemin": "^9.0.0",

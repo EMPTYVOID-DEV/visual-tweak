@@ -1,7 +1,7 @@
 import { ZodSchema, z } from "zod";
 import { FileSchema } from "../schemas/fileSchema";
 
-export function constructSchema(baseSchema: ZodSchema) {
+export function fileSchemaConstructor(baseSchema: ZodSchema) {
   return z.object({
     file: FileSchema,
     settings: z

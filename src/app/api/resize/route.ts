@@ -1,9 +1,10 @@
 import { routeWrapper } from "@server/utils/wrapHandler";
 import { fileToBuffer } from "@server/utils/transformers";
-import { resizeImage } from "@server/utils/resize";
+import { resizeImage } from "@server/utils/optimizationPack";
 import { AcceptedFormats } from "@shared/types.shared";
 import { createResponse } from "@server/utils/createResponse";
 import { ResizeSchema, ResizeType } from "@server/schemas/resizeSchema";
+import { fileSchemaConstructor } from "@server/utils/schemaConstructors";
 
 async function imageResizer({
   file,
@@ -21,4 +22,7 @@ async function imageResizer({
   });
 }
 
-export const POST = routeWrapper(imageResizer, ResizeSchema);
+export const POST = routeWrapper(
+  imageResizer,
+  fileSchemaConstructor(ResizeSchema)
+);

@@ -1,7 +1,8 @@
 "use client";
+
 import Upload from "@components/upload";
 import { useFile } from "@hooks/useFile";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@components/button";
 import { none, some } from "fp-ts/lib/Option";
 import { ArrowRightCircle, Download } from "lucide-react";
@@ -12,25 +13,31 @@ import { ToastContainer, toast } from "react-toastify";
 import LoadingIcon from "@client/extraIcons/loadingIcon";
 import "react-toastify/dist/ReactToastify.css";
 import Select from "./select";
-import { operations } from "../const.client";
-import { Operations, SelectOption } from "../types.client";
+import { SelectOption, Settings } from "../types.client";
 import { SingleValue } from "react-select";
 import { useOperation } from "@hooks/useOperation";
-import { validateSize, validateType } from "@/lib/shared/utils";
+import { validateSize, validateType } from "@shared/utils";
 
-function Transformer() {
+type Props<A extends string> = {
+  settingsMap: Settings<A>;
+  operations: SelectOption<A, string>[];
+};
+
+function ServerPacksWrapper<A extends string>({
+  operations,
+  settingsMap,
+}: Props<A>) {
   const { file, url, setFile, setUrl } = useFile();
   const [status, setStatus] = useState<"idle" | "loading">("idle");
   const [format, setFormat] = useState<string>("");
-  const { operation, setOperation, settings, SettingsComponent } =
-    useOperation();
+  const {
+    operation,
+    setOperation,
+    settings,
+    setDefaultSettings,
+    SettingsComponent,
+  } = useOperation(settingsMap, operations[0]);
 
-  /**
-   *  This function will call post function to make the operation
-   *  It need to seturl and format after success
-   *  And show toast in case error
-   *  also need to reset the file we operate on and set status back to idle
-   */
   async function Operate() {
     if (file._tag == "None") return;
     setStatus("loading");
@@ -48,20 +55,13 @@ function Transformer() {
     setStatus("idle");
   }
 
-  /**
-   * This function need to set operation and reset the url after changing operation
-   */
   function onOperationChange(
-    newOperation: SingleValue<SelectOption<Operations, string>>
+    newOperation: SingleValue<SelectOption<A, string>>
   ) {
     if (!newOperation) return;
     setOperation(newOperation);
     setUrl(none);
   }
-
-  /**
-   *  This needs to validate and set the file as well as reset the url.
-   */
 
   function onFileUpload(file: File) {
     if (!validateSize(file.size))
@@ -75,6 +75,16 @@ function Transformer() {
     setFile(some(file));
     setUrl(none);
   }
+
+  useEffect(() => {
+    setUrl(none);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [settings]);
+
+  useEffect(() => {
+    setDefaultSettings(settingsMap[operations[0].value].defaultSettings);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className="w-[80%] md:w-[100%] justify-center flex flex-col gap-6 ">
@@ -90,7 +100,7 @@ function Transformer() {
         onChange={onFileUpload}
         onDrop={onFileUpload}
       />
-      <SettingsComponent />
+      {SettingsComponent && <SettingsComponent />}
       {file._tag == "Some" && (
         <Button
           variant={status == "idle" ? "primary" : "disabled"}
@@ -123,4 +133,4 @@ function Transformer() {
   );
 }
 
-export default Transformer;
+export default ServerPacksWrapper;

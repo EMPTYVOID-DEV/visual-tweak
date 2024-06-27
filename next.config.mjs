@@ -16,13 +16,12 @@ const nextConfig = {
         "@server": resolve(__dirname, "src/lib/server"),
         "@shared": resolve(__dirname, "src/lib/shared"),
         "@components": resolve(__dirname, "src/lib/client/components"),
-        "@operationComponents": resolve(
-          __dirname,
-          "src/lib/client/operationComponents"
-        ),
+        "@containers": resolve(__dirname, "src/lib/client/containers"),
         "@hooks": resolve(__dirname, "src/lib/client/hooks"),
+        "@stores": resolve(__dirname, "src/lib/client/stores"),
       },
     },
+    swcMinify: false,
   },
 };
 

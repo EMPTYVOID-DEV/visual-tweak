@@ -4,9 +4,10 @@ import {
 } from "@server/schemas/compressionSchema";
 import { routeWrapper } from "@server/utils/wrapHandler";
 import { fileToBuffer } from "@server/utils/transformers";
-import { compressImage } from "@server/utils/compress";
+import { compressImage } from "@server/utils/optimizationPack";
 import { AcceptedFormats } from "@shared/types.shared";
 import { createResponse } from "@server/utils/createResponse";
+import { fileSchemaConstructor } from "@server/utils/schemaConstructors";
 
 async function imageCompresser({
   file,
@@ -24,4 +25,7 @@ async function imageCompresser({
   });
 }
 
-export const POST = routeWrapper(imageCompresser, CompressionSchema);
+export const POST = routeWrapper(
+  imageCompresser,
+  fileSchemaConstructor(CompressionSchema)
+);

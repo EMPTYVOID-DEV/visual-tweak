@@ -1,45 +1,24 @@
-import { FunctionComponent } from "react";
 import { AcceptedFormats } from "../shared/types.shared";
-import { Operations, SelectOption } from "./types.client";
-import Converter from "@operationComponents/converter";
-import Compresser from "@operationComponents/compresser";
-import Resizer from "@operationComponents/resizer";
+import { Pack, SelectOption } from "./types.client";
 
-export const settingsMap: Record<
-  Operations,
-  { component: FunctionComponent; defaultSettings: Record<string, unknown> }
-> = {
-  "format-conversion": {
-    defaultSettings: { targetFormat: "png" },
-    component: Converter,
-  },
-  compression: {
-    component: Compresser,
-    defaultSettings: { quality: 40 },
-  },
-  resize: {
-    component: Resizer,
-    defaultSettings: {
-      fit: "fill",
-      height: 200,
-      width: 200,
-      position: "center",
-    },
-  },
-};
-
-export const operations: SelectOption<Operations, string>[] = [
+export const packs: Pack[] = [
   {
-    label: "Format Conversion",
-    value: "format-conversion",
+    title: "Optimization Pack",
+    description:
+      "Resize, compress, and convert images. Optimize file size while maintaining quality.",
+    href: "optimization",
   },
   {
-    label: "Compression",
-    value: "compression",
+    title: "Filters Pack",
+    description:
+      "Apply various image filters and effects.Adjust color, saturation, blur, and opacity.",
+    href: "filters",
   },
   {
-    label: "Resize",
-    value: "resize",
+    title: "Enhancement Pack",
+    description:
+      "Improve image quality with advanced techniques.Reduce noise, sharpen details, and remove red-eye.",
+    href: "enhancement",
   },
 ];
 

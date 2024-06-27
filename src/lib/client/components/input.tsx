@@ -1,3 +1,5 @@
+"use client";
+
 import React, { ChangeEvent } from "react";
 
 type InputType = "text" | "password" | "email" | "number";
