@@ -25,14 +25,12 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className="flex flex-col items-stretch gap-2 w-[--width,100%]">
-      {label && (
-        <label
-          htmlFor="input"
-          className="font-font text-body font-semibold text-foregroundColor empty:hidden"
-        >
-          {label}
-        </label>
-      )}
+      <label
+        htmlFor="input"
+        className="font-font text-body font-semibold text-foregroundColor empty:hidden"
+      >
+        {label}
+      </label>
       <input
         id="input"
         type={inputType}

@@ -7,6 +7,13 @@ export type OptimizationOperations =
   | "compression"
   | "resize";
 
+export type filtersOperations =
+  | "hue"
+  | "saturation"
+  | "sepia"
+  | "blur"
+  | "grayscale";
+
 export type Settings<A extends string> = Record<
   A,
   {

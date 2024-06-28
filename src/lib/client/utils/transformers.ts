@@ -17,3 +17,9 @@ export function recordToFormData(data: Record<string, string | Blob>) {
   Object.entries(data).forEach((el) => fd.append(el[0], el[1]));
   return fd;
 }
+
+export function strToFloat(str: string, defaultVal: number) {
+  const parsedStr = parseFloat(str);
+  if (Number.isNaN(parsedStr)) return defaultVal;
+  return parsedStr;
+}

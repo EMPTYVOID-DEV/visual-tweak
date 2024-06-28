@@ -10,8 +10,8 @@ export default function Page() {
         <h1 className="text-primaryColor ">Visual tweak</h1>
         <span className="text-foregroundColor/70 text-center text-balance font-semibold">
           Image Processing Tools for Developers API-driven packs for image
-          optimization, filters, enhancements and more. Efficiently process and
-          transform images for your applications.
+          optimization, filters and more. Efficiently process and transform
+          images for your applications.
         </span>
       </section>
       <section className="w-full grid grid-cols-2 auto-rows-fr  gap-4 md:grid-cols-1 z-50">

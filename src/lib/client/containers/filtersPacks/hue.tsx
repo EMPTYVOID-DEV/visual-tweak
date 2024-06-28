@@ -1,21 +1,21 @@
-"use client";
-
 import { useStore } from "zustand";
 import { settingsStore } from "@stores/settings";
 import Slider from "@components/slider";
 
-function Compresser() {
+function Hue() {
   const { settings, updateSettings } = useStore(settingsStore);
   return (
     <Slider
-      label={`The relative quality ${settings.quality}%`}
+      min={0}
+      max={360}
+      label={`The hue degrees ${settings.degrees}`}
       className="z-0"
-      value={settings.quality as number}
+      value={settings.degrees as number}
       onChange={(val) => {
-        updateSettings({ quality: val });
+        updateSettings({ degrees: val });
       }}
     />
   );
 }
 
-export default Compresser;
+export default Hue;

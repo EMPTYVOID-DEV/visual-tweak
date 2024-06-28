@@ -7,10 +7,11 @@ type Props = {
   name: Option<string>;
   onChange: (file: File) => void;
   onDrop: (file: File) => void;
+  inputRef?: React.RefObject<HTMLInputElement>;
   accept: string;
 };
 
-const UploadUI = ({ onChange, onDrop, accept, name }: Props) => {
+const UploadUI = ({ onChange, onDrop, accept, name, inputRef }: Props) => {
   const dropHandler = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault();
     const dropFile = e.dataTransfer?.files[0];
@@ -32,6 +33,7 @@ const UploadUI = ({ onChange, onDrop, accept, name }: Props) => {
   return (
     <>
       <input
+        ref={inputRef}
         accept={accept}
         type="file"
         id="upload"

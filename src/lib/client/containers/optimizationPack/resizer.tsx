@@ -3,28 +3,28 @@
 import Input from "@client/components/input";
 import { settingsStore } from "@stores/settings";
 import { useStore } from "zustand";
+import { strToFloat } from "../../utils/transformers";
 
 function Resizer() {
-  const { settings, updateSettings } = useStore(settingsStore);
+  const updateSettings = useStore(
+    settingsStore,
+    (state) => state.updateSettings
+  );
   return (
     <div className="w-full flex flex-col gap-2">
       <Input
         defaultValue="200"
         label="Width (px)"
-        handleChange={(width) => {
-          if (width.length == 0)
-            return updateSettings({ ...settings, width: 50 });
-          updateSettings({ ...settings, width: parseFloat(width) });
-        }}
+        handleChange={(width) =>
+          updateSettings({ width: strToFloat(width, 50) })
+        }
       />
       <Input
         defaultValue="200"
         label="Height (px)"
-        handleChange={(height) => {
-          if (height.length == 0)
-            return updateSettings({ ...settings, height: 50 });
-          updateSettings({ ...settings, height: parseFloat(height) });
-        }}
+        handleChange={(height) =>
+          updateSettings({ height: strToFloat(height, 50) })
+        }
       />
     </div>
   );

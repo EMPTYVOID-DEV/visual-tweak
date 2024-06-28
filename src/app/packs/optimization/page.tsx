@@ -6,7 +6,7 @@ import {
 } from "@client/optimizationPack";
 import ServerPacksWrapper from "@components/serverPacksWrapper";
 
-function Operations() {
+function Optimzation() {
   return (
     <div className="w-svm min-h-svh overflow-hidden bg-backgroundColor flex flex-col justify-center items-center px-[2.5%] py-[2.5%]">
       <ServerPacksWrapper
@@ -17,4 +17,4 @@ function Operations() {
   );
 }
 
-export default Operations;
+export default Optimzation;
