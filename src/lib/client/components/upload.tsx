@@ -1,5 +1,6 @@
 "use client";
 
+import { sizeLimit } from "@/lib/shared/const.shared";
 import { Option } from "fp-ts/lib/Option";
 import React, { FormEvent } from "react";
 
@@ -59,7 +60,7 @@ const UploadUI = ({ onChange, onDrop, accept, name, inputRef }: Props) => {
         {name._tag == "None" && (
           <span className="text-foregroundColor/70 text-center text-balance font-semibold text-small">
             The file formats you can use are limited to JPEG, JPG, PNG, WebP,
-            TIFF, and AVIF <br /> Maximum file size is 5 MB.
+            TIFF, and AVIF <br /> Maximum file size is {sizeLimit}MB.
           </span>
         )}
       </label>

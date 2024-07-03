@@ -66,7 +66,7 @@ function ServerPacksWrapper<A extends string>({
   function onFileUpload(file: File) {
     if (!validateSize(file.size))
       return toast.error(
-        `File size should be less or equal to ${sizeLimit}mb and not zero`
+        `File size should be less or equal to ${sizeLimit}mb.`
       );
     if (!validateType(file.type))
       return toast.error(

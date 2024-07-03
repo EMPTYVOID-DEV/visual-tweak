@@ -1,7 +1,6 @@
 import sharp from "sharp";
 import { AcceptedFormats } from "@/lib/shared/types.shared";
 import { CompressionType } from "../schemas/compressionSchema";
-import { sharpSettings } from "../const.server";
 import { ConverterType } from "../schemas/converterSchema";
 import { ResizeType } from "../schemas/resizeSchema";
 
@@ -36,15 +35,15 @@ export async function convertImage(
   switch (targetFormat) {
     case "jpeg":
     case "jpg":
-      return sharpInstance.jpeg(sharpSettings.jpeg).toBuffer();
+      return sharpInstance.jpeg().toBuffer();
     case "png":
-      return sharpInstance.png(sharpSettings.png).toBuffer();
+      return sharpInstance.png().toBuffer();
     case "webp":
-      return sharpInstance.webp(sharpSettings.webp).toBuffer();
+      return sharpInstance.webp().toBuffer();
     case "avif":
-      return sharpInstance.avif(sharpSettings.avif).toBuffer();
+      return sharpInstance.avif().toBuffer();
     case "tiff":
-      return sharpInstance.tiff(sharpSettings.tiff).toBuffer();
+      return sharpInstance.tiff().toBuffer();
   }
 }
 
