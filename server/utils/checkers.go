@@ -16,3 +16,12 @@ func CheckType(filetype string) bool {
 	}
 	return false
 }
+
+func IsAcceptedFormat(format string) bool {
+	for _, accept := range consts.AcceptedImgFormats {
+		if accept == format {
+			return true
+		}
+	}
+	return false
+}

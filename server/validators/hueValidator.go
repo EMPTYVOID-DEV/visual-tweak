@@ -2,9 +2,11 @@ package validators
 
 import (
 	"errors"
+
+	"github.com/EMPTYVOID-DEV/visual-tweak/types"
 )
 
-func HueValidator(settings map[string]interface{}) error {
+func HueValidator(settings types.Settings) error {
 	degreesValue, exists := settings["degrees"]
 	if !exists {
 		return errors.New("missing 'degrees' in settings")

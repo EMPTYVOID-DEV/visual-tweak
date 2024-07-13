@@ -1,3 +1,5 @@
 package types
 
-type SettingsValidator func(map[string]interface{}) error
+type Settings map[string]interface{}
+
+type SettingsValidator func(Settings) error

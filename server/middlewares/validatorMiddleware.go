@@ -49,8 +49,7 @@ func FileValidator() gin.HandlerFunc {
 
 func SettingsValidator(settingsValidator types.SettingsValidator) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		var setttingsMap map[string]interface{}
-
+		var setttingsMap types.Settings
 		if err := json.Unmarshal([]byte(c.PostForm("settings")), &setttingsMap); err != nil {
 			c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"error": "settings is json and its required"})
 			return
