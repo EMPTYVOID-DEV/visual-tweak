@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
         {label}
       </label>
       <input
-        id="input"
+        id="input"        
         type={inputType}
         defaultValue={defaultValue}
         value={value}

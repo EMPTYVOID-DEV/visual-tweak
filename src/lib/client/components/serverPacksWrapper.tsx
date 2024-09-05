@@ -41,7 +41,7 @@ function ServerPacksWrapper<A extends string>({
   async function Operate() {
     if (file._tag == "None") return;
     setStatus("loading");
-    const result = await Post(`/api/${operation.value}`, {
+    const result = await Post(operation.value, {
       file: file.value,
       settings: JSON.stringify(settings),
     });
@@ -50,7 +50,7 @@ function ServerPacksWrapper<A extends string>({
       const url = some(createFileUrl(result.right));
       setUrl(url);
       setFormat(format);
-    } else result.left.forEach((err) => toast.error(err));
+    } else toast.error(result.left);
     setFile(none);
     setStatus("idle");
   }

@@ -6,7 +6,7 @@ import Blur from "@containers/filtersPacks/blur";
 export const filtersPackSettings: Settings<filtersOperations> = {
   blur: {
     component: Blur,
-    defaultSettings: { sigma: 1 },
+    defaultSettings: { radius: 1 },
   },
   grayscale: {
     component: null,
@@ -25,7 +25,7 @@ export const filtersPackSettings: Settings<filtersOperations> = {
   saturation: {
     component: Saturation,
     defaultSettings: {
-      factor: 2,
+      change: 1,
     },
   },
 };

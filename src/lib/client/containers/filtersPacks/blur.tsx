@@ -12,10 +12,10 @@ function Saturation() {
   );
   return (
     <Input
-      label="Blur sigma"
+      label="Blur raduis"
       inputType="number"
       defaultValue="1"
-      handleChange={(val) => updateSettings({ sigma: strToFloat(val, 1) })}
+      handleChange={(val) => updateSettings({ radius: strToFloat(val, 1) })}
     />
   );
 }
