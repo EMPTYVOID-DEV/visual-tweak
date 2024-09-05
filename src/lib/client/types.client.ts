@@ -4,7 +4,6 @@ export type SelectOption<A, B> = { value: A; label: B };
 
 export type OptimizationOperations =
   | "format-conversion"
-  | "compression"
   | "resize";
 
 export type filtersOperations =

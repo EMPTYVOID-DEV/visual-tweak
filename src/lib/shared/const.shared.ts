@@ -1,5 +1,5 @@
 // 5mb
-export const sizeLimit = 2;
+export const sizeLimit = 5;
 
 export const acceptedTypes = [
   "image/jpeg",
@@ -9,3 +9,4 @@ export const acceptedTypes = [
   "image/tiff",
   "image/avif",
 ];
+

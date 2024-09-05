@@ -11,11 +11,11 @@ function Saturation() {
     (state) => state.updateSettings
   );
   return (
-    <Input
-      label="Saturation factor"
+    <Input  
+      label="Saturation change"
       inputType="number"
-      defaultValue="2"
-      handleChange={(val) => updateSettings({ factor: strToFloat(val, 2) })}
+      defaultValue="1"      
+      handleChange={(val) => updateSettings({ change: strToFloat(val, 1) })}
     />
   );
 }
