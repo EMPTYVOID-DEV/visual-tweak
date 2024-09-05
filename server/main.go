@@ -18,17 +18,16 @@ func main() {
 		}
 	}()
 	godotenv.Load()
-	ginInstance := gin.Default()
-	port := os.Getenv("port")
+	app := gin.Default()
 	next_host := os.Getenv("next_host")
-	ginInstance.Use(cors.New(cors.Config{
+	app.Use(cors.New(cors.Config{
 		AllowOrigins: []string{next_host},
 		AllowMethods: []string{"POST"},
 		AllowHeaders: []string{"*"},
 	}))
-	ginInstance.Use(middlewares.ErrorHandler())
-	apiGroup := ginInstance.Group("/api")
+	app.Use(middlewares.ErrorHandler())
+	apiGroup := app.Group("/api")
 	routes.SetupFiltersRoute(apiGroup)
 	routes.SetupOptimizationRoute(apiGroup)
-	ginInstance.Run(":" + port)
+	app.Run()
 }
